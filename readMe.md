@@ -12,5 +12,7 @@ Sharon Story Smith
         * Frequency -- in minutes
   
   * Calculates when the next train will arrive;  relative to the current time.
+    downloaded moment.js 
+    
   
   * Users from any machine can view same train times. ! 
