@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Train Scheduler</title>
+    <!-- reset css -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script> 
+    <!-- style css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <h1>Train Scheduler</h1>
+        <div id="input-display">
+            <form id="schedule-form">
+                <label for="trainName-input">Train Name</label>
+                <input type="text" id="trainName-input"></br>
+    ​
+                <label for="dest-input">Destination</label>
+                <input type="text" id="dest-input"></br>
+    ​
+                <label for="firstTrain-input">First Train Time (military time)</label>
+                <input type="text" id="firstTrain-input"></br>
+    ​
+                <label for="freq-input">Frequency of Train Per Hour</label>
+                <input type="text" id="freq-input"></br>
+    ​
+                <button id="add-schedule" type="button">Add to Schedule</button>
+            </form>        
+        </div>
+        <div id="schedList-div">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th> Name</th>
+                        <th> Destination </th>
+                        <th> First Train </th>
+                        <th> Frequency </th> 
+                    </tr>  
+                </thead>
+                <tbody id="sched-table">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- script -->
+    <script src='assets/js/main.js'></script>
+</body>
+</html>
