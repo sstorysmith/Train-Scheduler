@@ -1,0 +1,80 @@
+<!-- Homework Assignment #7 - Rock, Paper, Scissors played with two players over the internet
+     Sharon Story Smith, sstorysmith@gmail.com
+    Date
+
+    What this project does:
+    This project uses Firebase to store data so that data persists and is accessible
+    to facilitate the game Rock,Paper, Scissors played over the internet against
+    against each other. 
+
+
+    -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<title>Rock, Paper, Scissors</title>  
+   
+<head>
+
+  <meta charset="utf-8">
+    <title>Favorite Gif Files</title>  
+     <!-- reset CSS
+    <link rel="stylesheet" href="assets/css/reset.css"> -->
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     CSS
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Link to the jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    
+</head>
+
+<body>
+  
+    <h1 id="title" class="text-success text-center col-md-6 offset-md-3 font-weight-bold font-italic padd-top padd-bottom">Rock, Paper, Scissors</i></h1>
+    <div id="game-box" class="span6" style="margin: 0 auto;">
+    
+
+      <!-- Players View -->
+      <div id="players-view" class="col-md-12 offset-md-3">
+          <div id="player1-view"><h4>Player 1</h4>
+            <img class="player1Graphic" src="https://img.">
+          
+            <div id="player1-moves" class="playerbuttons">  
+              <form> 
+                <label for="play=" text-white><class="formLabel"> play </label>               
+                <button type="submit" id="rock" class="col-sm-3 btn btn-success" value="1">Rock</button>
+                <button type="submit" id="paper" class="col-sm-3 btn btn-success" value="2">Paper</button>
+                <button type="submit" id="scissors" class="col-sm-3 btn btn-success" value="3">Scissors</button>
+              </form>
+              <br/>
+           </div>    
+      
+          <div id="player2-view"><h4 class="player">Player 2</h4>
+            <img class="player2Graphic" src="https://img.">
+         
+              <div id="player2-moves" class="playerbuttons">
+                 <form>
+                  <label for="play" text-white><class="formLabel">play</label>               
+                  <button type="submit" id="rock" class="col-sm-3 btn btn-success" value="1">Rock</button>
+                  <button type="submit" id="paper" class="col-sm-3 btn btn-success" value="2">Paper</button>
+                  <button type="submit" id="scissors" class="col-3 btn btn-success" value="3">Scissors</button>
+              </div>
+            </form>
+            <br/>             
+          </div>
+      </div>         
+          
+    </div>
+
+    <!-- javascript is in the app.js file -->
+    <script src="assets/javascript/app.js"></script>
+
+ 
+</body>
+
+</html

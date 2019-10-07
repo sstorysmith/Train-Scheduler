@@ -61,21 +61,21 @@
         
           // listen for add to firebase
           firebase.database().ref().on("child_added", function(snapshot) {
-          console.log("get trainSchedules"); 
-          console.log(snapshot.val());
-          console.log(snapshot.val().train);
-          let train1 = snapshot.val().train;    
-          console.log(snapshot.val().dest);
-          let dest1 = snapshot.val().dest;
-          console.log(snapshot.val().firstTrain); 
-          let firstTrain1 = snapshot.val().firstTrain;
-          console.log(snapshot.val().freq);
-          let freq1 = snapshot.val().freq;
+        //   console.log("get trainSchedules"); 
+        //   console.log(snapshot.val());
+        //   console.log(snapshot.val().train);
+        //   let train1 = snapshot.val().train;    
+        //   console.log(snapshot.val().dest);
+        //   let dest1 = snapshot.val().dest;
+        //   console.log(snapshot.val().firstTrain); 
+        //   let firstTrain1 = snapshot.val().firstTrain;
+        //   console.log(snapshot.val().freq);
+        //   let freq1 = snapshot.val().freq;
           // calculate arrival time
           // trainArrTime1 =calcArrival(firstTrain1);
 
           tr= "<tr> <td>" + train1 + "</td><td>"+ dest1 + "</td><td>" + firstTrain1 + "</td><td>" + freq1 + "</td></tr>";
-      
+          tr= "<tr> <td>" + train + "</td><td>"+ dest + "</td><td>" + firstTrain + "</td><td>" + freq + "</td></tr>";
           $('#sched-table').append(tr);
       
           },  
