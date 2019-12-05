@@ -24,7 +24,7 @@
             <h1>Train Scheduler</h1> 
             
             <div class="row  col-sm-3 col-md-4 col-lg-4 offset-0 text-center" id="clock-div" >
-            <span> 00:00 </span>
+            <p> 00:00 <p>
             </div>
         
         
@@ -61,8 +61,53 @@
                 </table>
             </div>
    </div>
+  
 
-    <!-- script -->
-    <script src='assets/js/main.js'></script>
+  
+ <script type="text/javascript">;
+
+
+ var curTime= moment().format('HH:MM');
+ $("#clock-div p:first").replaceWith("<p> "+ curTime + "</p>");
+ // var d=moment.duration(x,'days);
+//  d.asHours();
+// moment().add(Number, String);
+
+// var m = moment(new Date(2011, 2, 12, 5, 0, 0)); // the day before DST in the US
+// m.hours(); // 5
+// m.add(24, 'hours').hours(); // 6 (but you may have to set the timezone first)
+// setInterval(function, milliseconds, param1, param2, ...)
+
+
+    
+        console.log("  curTime  " + curTime);
+        function updateTimeClock() {
+            
+            curTime=moment().format('HH:MM');
+            
+
+            $("#clock-div p:first").replaceWith("<p> "+ curTime + "</p>"); 
+        }
+ 
+  
+        //setTimeout(function() => {  console.log("World!"); }, 10);
+        
+
+        setInterval(updateTimeClock(),3000);
+
+        
+        setInterval(updateTimeClock(),3000);
+
+        
+        setInterval(updateTimeClock(),3000);
+
+
+        
+
+    
+  console.log("  leaving  " );
+
+</script>
+
 </body>
 </html>
