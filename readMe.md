@@ -15,3 +15,11 @@ Sharon Story Smith
   * Calculates when the next train will arrive;  relative to the current time.
     downloaded moment.js 
   * Users from any machine can view same train times. ! 
+
+
+  App Design
+      Train schedules are added and stored in Firebase and displayed on the screen.
+
+      Function ArrivalTime (startTime, interval, currentTime)
+          uses Moment code to calculate and convert time formats
+        returns a time

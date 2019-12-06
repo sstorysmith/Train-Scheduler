@@ -23,7 +23,7 @@
     console.log("function Arrival Time  start:" + startTime + "  interval: " + interval + "  curr:" + currentTime);
 
                 // Time is 3:30 AM
-                var startTime = "03:30";
+                var firstTime = "03:30";
                 // First Time (pushed back 1 year to make sure it comes before current time)
                 var firstTimeConverted = moment(startTime, "HHmm");
                 console.log("firstTimeConverted:  " , firstTimeConverted);
@@ -47,9 +47,6 @@
                 // Next Train
                 var nextTrain = moment().add(tMinutesTillTrain, "minutes");
                 console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
-                return nextTrain;
-
-  }
                 
 
 
@@ -72,12 +69,12 @@
 //       alert("in arrivalFunction  t=" + t  + " interval = " + interval + " correctedT=" + correctedT + "  currTime=" + currentTime);
 //     }
 //     while (t < currentTime);
- //   return (nextTrain);
- // }
+    return (nextTrain);
+  }
 
   
 
-  // Firebase configuration
+  // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyA8qG2Mg-ou6WD1xIjSBzB7SgeSBNqnrc4",
     authDomain: "sharonproject-1e62b.firebaseapp.com",
@@ -99,56 +96,60 @@
   let trainTime = "";
   let freq = "";
   console.log ("ready"); 
-
-
   $(document).ready(function () {
+
+
   console.log ("listen for addSchedule"); 
   //  listener for "add Schedule" button 
-    $("#add-schedule").on("click", function (event) {
-      event.preventDefault();
-      
+  $("#add-schedule").on("click", function (event) {
+    event.preventDefault();
+    
 
-    // <!-- check errors -->
+  // <!-- check errors -->
 
-      alert($('#trainNameInput'));
-      if ($('#trainNameInput') ==="") {
-        alert("Train Name is blank. Reenter.");
-      };
-      if ($('#destInput')=="") {
-        alert("Destination is blank. Reenter.");
-      };
-      if ('#firstTrainInput'=="") {
-        alert("Train Time is blank. Reenter.");
-      };
-      if ($('#freqInput')=="") {
-        alert("Frequency is blank. Reenter.");
-      };
-      // move input data from the form
-  console.log ("move input data from form"); 
-      let scheduleItem = {
-        trainName: $('#trainNameInput').val(),
-        dest: $('#destInput').val(),
-        trainTime: $('#firstTrainInput').val(),
-        freq: $('#freqInput').val()
-      };
+    alert($('#trainNameInput'));
+    if ($('#trainNameInput') ==="") {
+      alert("Train Name is blank. Reenter.");
+    };
+    if ($('#destInput')=="") {
+      alert("Destination is blank. Reenter.");
+    };
+    if ('#firstTrainInput'=="") {
+      alert("Train Time is blank. Reenter.");
+    };
+    if ($('#freqInput')=="") {
+      alert("Frequency is blank. Reenter.");
+    };
+    // move input data from the form
+console.log ("move input data from form"); 
+     let scheduleItem = {
+      trainName: $('#trainNameInput').val(),
+      dest: $('#destInput').val(),
+      trainTime: $('#firstTrainInput').val(),
+      freq: $('#freqInput').val()
+    };
 
 
-      let curTime = moment().format("HHmm");
-      // let startTime = scheduleItem.trainTime;
-      trainTime = arrivalTime(scheduleItem.trainTime, scheduleItem.freq, curTime);
-      console.log("before push: StartTime " + scheduleItem.trainTime + "  curTime:"  + curTime + "  freq:" + scheduleItem.freq);
-      // // push (add) to fbDB        
-      // console.log(scheduleItem +"   current time" + curTime);
-      firebase.database().ref().push(scheduleItem);
-      // console.log("curTime and StartTime after push" + curTime + "     " + startTime)    
-      // console.log("train "+ scheduleItem.trainName +"   " + "dest " + scheduleItem.dest + "   " + " trainTime " + trainTime + "  freq" + freq);
+    let curTime = moment().format("HHmm");
+    // let startTime = scheduleItem.trainTime;
+    trainTime = arrivalTime(scheduleItem.trainTime, scheduleItem.freq, curTime);
+    console.log("before push: StartTime " + scheduleItem.trainTime + "  curTime:"  + curTime + "  freq:" + scheduleItem.freq);
+    // // push (add) to fbDB        
+    // console.log(scheduleItem +"   current time" + curTime);
+    firebase.database().ref().push(scheduleItem);
+    // console.log("curTime and StartTime after push" + curTime + "     " + startTime)    
+    // console.log("train "+ scheduleItem.trainName +"   " + "dest " + scheduleItem.dest + "   " + " trainTime " + trainTime + "  freq" + freq);
 
   });
 
+
+  
+
+
   // listen for add to firebase
   // child added will fire once for each record in the collection
-firebase.database().ref().on("child_added", function (snapshot) {
-console.log("FBdb fired");
+ firebase.database().ref().on("child_added", function (snapshot) {
+ console.log("FBdb fired");
 console.log(snapshot.val());
 console.log(snapshot.val().trainName);    
 console.log(snapshot.val().dest);   
@@ -185,10 +186,9 @@ console.log(snapshot.val().freq);
      do {
        setTimeout (function(){
          curTime=moment(H); 
-         
-         $("#clock-div").append("<p> + trainTime + </p>");
+         $("#clock-div").html(trainTime);
                             },1000);
     while (exit==false);}
                           
-  })
+  });n
 
