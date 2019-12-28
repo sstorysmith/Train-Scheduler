@@ -1,79 +1,39 @@
 
-//   // fffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-//   // this function updates the time clock every minute  
-//   function updateClock() {
 
-//   //  var  time = now.getHours() + ':' + now.getMinutes();
-//     var time= moment().format("HH:MM");
-
-//     // set the content of the element with the ID time to the formatted string
-//     document.getElementById('time').innerHTML = time;
-
-//     html="<span>" +  time + "</span>" 
-    
-//   }
        
-     
+ // fffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  // this function updates the displayed time clock    
+  function updateTimeClock() {            
+    curTime=moment().format('HH:mm:ss'); 
+    $("#clock-div p:first").replaceWith("<p> "+ curTime + "</p>"); 
+}
+// fffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  // this function calculates the interval minutes from the current Time based on the starting time     
+function minutesUntil(startTime, interval, ncurrentTime) {
+console.log("function Arrival Time  start:" + startTime + "  interval: " + interval + "  curr:" + ncurrentTime);
 
+                       
+        var startTimeConverted = moment(startTime, "HH:mm");
+        console.log("startTimeConverted:  " , startTimeConverted);
+        
+        // Difference between the times
+        var diffTime = moment().diff(moment(startTimeConverted), "minutes");
+        console.log("DIFFERENCE IN TIME: " + diffTime);
 
-  // fffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-  // this function calculates the arrival time of a train
+        // Time apart (remainder)
+        var tRemainder = diffTime % interval;
+        console.log(tRemainder);
 
-  function arrivalTime(startTime, interval, ncurrentTime) {
-    console.log("function Arrival Time  start:" + startTime + "  interval: " + interval + "  curr:" + currentTime);
+        // Minute Until next occurence
+        var tMinutesTill = interval - tRemainder;
+        console.log("MINUTES TILL TRAIN: " + tMinutesTill);
 
-                // Time is 3:30 AM
-                var startTime = "03:30";
-                // First Time (pushed back 1 year to make sure it comes before current time)
-                var firstTimeConverted = moment(startTime, "HHmm");
-                console.log("firstTimeConverted:  " , firstTimeConverted);
+        
+        return tMinutesTill;
 
-                // Current Time
-                var currentTime = moment();
-                console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
-
-                // Difference between the times
-                var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-                console.log("DIFFERENCE IN TIME: " + diffTime);
-
-                // Time apart (remainder)
-                var tRemainder = diffTime % tFrequency;
-                console.log(tRemainder);
-
-                // Minute Until Train
-                var tMinutesTillTrain = tFrequency - tRemainder;
-                console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
-
-                // Next Train
-                var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-                console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
-                return nextTrain;
-
-  }
-                
-
-
-
-
-
-
-//     // t= parseInt(startTime) + parseInt(interval);
-// console.log (moment(t).format("HH") + "moment(t).format(HHmm)");
-// console.log (moment(t).format("HHHH") + "moment(t).format(HHHH)");
-// console.log (moment(t).format("HHmm") + "moment(t).format(HHmm)");
-
-//     // t= parseInt(startTime) + parseInt(interval);
-    
-
-//     do {
-//       t = parseInt(t) + parseInt(interval);
-//       correctedT= moment(t).format("HHmm");
-
-//       alert("in arrivalFunction  t=" + t  + " interval = " + interval + " correctedT=" + correctedT + "  currTime=" + currentTime);
-//     }
-//     while (t < currentTime);
- //   return (nextTrain);
- // }
+}
+        
+  
 
   
 
@@ -133,39 +93,39 @@
       };
 
 
-      let curTime = moment().format("HHmm");
-      // let startTime = scheduleItem.trainTime;
-      trainTime = arrivalTime(scheduleItem.trainTime, scheduleItem.freq, curTime);
-      console.log("before push: StartTime " + scheduleItem.trainTime + "  curTime:"  + curTime + "  freq:" + scheduleItem.freq);
-      // // push (add) to fbDB        
-      // console.log(scheduleItem +"   current time" + curTime);
+    // push (add) to fbDB        
+  
       firebase.database().ref().push(scheduleItem);
       // console.log("curTime and StartTime after push" + curTime + "     " + startTime)    
       // console.log("train "+ scheduleItem.trainName +"   " + "dest " + scheduleItem.dest + "   " + " trainTime " + trainTime + "  freq" + freq);
 
   });
 
+
   // listen for add to firebase
   // child added will fire once for each record in the collection
 firebase.database().ref().on("child_added", function (snapshot) {
-console.log("FBdb fired");
-console.log(snapshot.val());
-console.log(snapshot.val().trainName);    
-console.log(snapshot.val().dest);   
-console.log(snapshot.val().trainTime);   
-console.log(snapshot.val().freq);
+  console.log("FBdb fired");
+  console.log(snapshot.val());
+  console.log(snapshot.val().trainName);    
+  console.log(snapshot.val().dest);   
+  console.log(snapshot.val().trainTime);   
+  console.log(snapshot.val().freq);
      
-//    // Current Time
-//    var currentTime = moment(HHMM);
-//    console.log("CURRENT TIME: " + (currentTime.format("HHMM"));
-//    moment();
-//    var trainTime = moment(traintime, "HHMM");
-//   console.log("firstTimeConverted:  " , trainTime);   
-//    minutesAway= moment((trainTime-curTime), "HHMM");
-    console.log("appending min away:" + minutesAway + "   trainTime=" + trainTime);
-     tr = "<tr> <td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().dest + "</td><td>" + snapshot.val().trainTime + "</td><td>" + minutesAway + "</td></tr>";
-// console.log("tr=" +"<tr> <td>" + trainName + "</td><td>" + dest + "</td><td>" + trainTime + "</td><td>" + minutesAway + "</td></tr>");
-     // append to list of trains on the sched display table
+var startTime = (snapshot.val().trainTime); 
+  console.log("  set startTime  " + startTime);
+var interval = (snapshot.val().freq);
+  console.log("  set interval: " + interval );
+ncurrentTime=moment();
+  console.log("  set ncurTime  " + ncurrentTime );
+minutesAway= minutesUntil((snapshot.val().trainTime), (snapshot.val().freq), moment());
+var nextTrain = moment().add(minutesAway, "minutes").format("HH:mm");
+console.log("ARRIVAL TIME: " + nextTrain);
+
+
+tr = "<tr> <td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().dest + "</td><td>" + nextTrain + "</td><td>" + minutesAway + "</td></tr>";
+  // console.log("tr=" +"<tr> <td>" + trainName + "</td><td>" + dest + "</td><td>" + trainTime + "</td><td>" + minutesAway + "</td></tr>");
+  // append to list of trains on the sched display table
      $('#sched-table').append(tr);
   },
     // Handle the errors
@@ -173,22 +133,32 @@ console.log(snapshot.val().freq);
       console.log("Errors handled: " + errorObject.code);
     }
   );
+  console.log (' finished writing to display');
 
   // Clear input fields
   $("#trainName, #destination, #firstTrain, #interval").val("");
-  return false;
 
-//   // update clock
-//   // call this function again in 1000ms
-  console.log("call updateClock");
-//  let exit = false;
-     do {
-       setTimeout (function(){
-         curTime=moment(H); 
-         
-         $("#clock-div").append("<p> + trainTime + </p>");
-                            },1000);
-    while (exit==false);}
+
+
+  curTime=moment().format('HH:mm:ss');           
+  console.log("  line 118 curTime  " + curTime);
+  $("#clock-div p:first").replaceWith("<p> "+ curTime + "</p>"); 
+
+
+
+console.log("  line 123 curTime  " + curTime);  
+  setInterval(updateTimeClock,1000);
+
+var startTime = "0100";
+console.log("  set startTime  " + startTime);
+var interval = 30;
+console.log("  set interval: " + interval );
+
+let minutesAway = minutesUntil(startTime, interval, curTime);
+console.log('arrival away: ' , minutesAway);
+trainArrivalTime= moment().add(minutesAway,"minutes"); 
+console.log("TRAIN arrival time: " + trainArrivalTime.format("HH:mm"));
+
                           
   })
 

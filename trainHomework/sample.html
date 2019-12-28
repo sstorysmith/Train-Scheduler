@@ -66,9 +66,43 @@
   
  <script type="text/javascript">;
 
+ curTime=moment().format('HH:mm:ss');       
 
- var curTime= moment().format('HH:MM');
- $("#clock-div p:first").replaceWith("<p> "+ curTime + "</p>");
+ // function written to be used with a parm for currentTime so the code is more versitile
+
+function updateTimeClock() {            
+            curTime=moment().format('HH:mm:ss'); 
+            $("#clock-div p:first").replaceWith("<p> "+ curTime + "</p>"); 
+        }
+
+function minutesUntilArrival(startTime, interval, ncurrentTime) {
+    console.log("function Arrival Time  start:" + startTime + "  interval: " + interval + "  curr:" + ncurrentTime);
+
+                               
+                var startTimeConverted = moment(startTime, "HH:mm");
+                console.log("startTimeConverted:  " , startTimeConverted);
+                
+                // Difference between the times
+                var diffTime = moment().diff(moment(startTimeConverted), "minutes");
+                console.log("DIFFERENCE IN TIME: " + diffTime);
+
+                // Time apart (remainder)
+                var tRemainder = diffTime % interval;
+                console.log(tRemainder);
+
+                // Minute Until next occurence
+                var tMinutesTill = interval - tRemainder;
+                console.log("MINUTES TILL TRAIN: " + tMinutesTill);
+
+                // Next Train
+                // var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+                // console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+                return tMinutesTill;
+
+  }
+                
+
+
  // var d=moment.duration(x,'days);
 //  d.asHours();
 // moment().add(Number, String);
@@ -79,33 +113,24 @@
 // setInterval(function, milliseconds, param1, param2, ...)
 
 
-    
-        console.log("  curTime  " + curTime);
-        function updateTimeClock() {
-            
-            curTime=moment().format('HH:MM');
-            
+        curTime=moment().format('HH:mm:ss');           
+        console.log("  line 118 curTime  " + curTime);
+        $("#clock-div p:first").replaceWith("<p> "+ curTime + "</p>"); 
 
-            $("#clock-div p:first").replaceWith("<p> "+ curTime + "</p>"); 
-        }
+      
  
-  
-        //setTimeout(function() => {  console.log("World!"); }, 10);
-        
+      console.log("  line 123 curTime  " + curTime);  
+        setInterval(updateTimeClock,1000);
+ 
+var startTime = "0100";
+ console.log("  set startTime  " + startTime);
+var interval = 30;
+ console.log("  set interval: " + interval );
 
-        setInterval(updateTimeClock(),3000);
-
-        
-        setInterval(updateTimeClock(),3000);
-
-        
-        setInterval(updateTimeClock(),3000);
-
-
-        
-
-    
-  console.log("  leaving  " );
+let minutesAway = minutesUntilArrival(startTime, interval, curTime);
+console.log('arrival away: ' , minutesAway);
+trainArrivalTime= moment().add(minutesAway,"minutes"); 
+ console.log("TRAIN arrival time: " + trainArrivalTime.format("HH:mm"));
 
 </script>
 
