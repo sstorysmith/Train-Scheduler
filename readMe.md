@@ -1,28 +1,33 @@
-Sharon Story Smith
-    2019-09_25
-    Train Scheduler
+Train Scheduler 
+Sharon Story Smith 2019
+       https://github.com/sstorysmith/NewTrainScheduler
 
-    Overview
-    Uses: Firebase and moment.js
-    
-    * When adding trains, administrators will be able to enter the following:
-    
-        * Train Name
-    
-        * Destination 
-    
-        * First Train Time -- in military time
-    
-        * Frequency -- in minutes
-  
-  * Calculates when the next train will arrive relative to the current time.
+Using:  Bootstrap
+        Jquery
+        Moment.js
 
-  * Users from any machine can view same train times because the data is stored in      Firebase.
+This program displays an input form for a user to enter:
+        Train Name
+        Destination
+        First Train Time -- in military time
+        Frequency -- in minutes
+
+Firebase is used to store/retrieve the data. Any user(s) can access the same data.
+
+An arrival time and minutes-until-arrival is claculated and displayed on the screen for each train.  
+
+Moment.js is used to calculate/convert times.
 
 
-  App Design
-      Train schedules are added and stored in Firebase and displayed on the screen.
 
-      Function ArrivalTime (startTime, interval, currentTime)
-        uses Moment code to calculate and convert time formats
-        returns a time
+
+
+* Please submit both the deployed Github.io link to your homework AND the link to the Github Repository!
+
+-
+### Add To Your Portfolio
+
+After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
+
+- - -
+
