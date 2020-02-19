@@ -1,33 +1,37 @@
-Train Scheduler 
-Sharon Story Smith 2019
-       https://github.com/sstorysmith/NewTrainScheduler
-
-Using:  Bootstrap
-        Jquery
-        Moment.js
-
-This program displays an input form for a user to enter:
-        Train Name
-        Destination
-        First Train Time -- in military time
-        Frequency -- in minutes
-
-Firebase is used to store/retrieve the data. Any user(s) can access the same data.
-
-An arrival time and minutes-until-arrival is claculated and displayed on the screen for each train.  
-
-Moment.js is used to calculate/convert times.
+o	Make sure your ReadMEs
+o	Clearly state the problem the app is trying to solve
+o	Gives a high-level overview of how the app is organized
+o	Gives start-to-finish instructions on how to run the app
+o	Links to deployed version of the app
+o	Screenshots of the app
 
 
+Sharon Story Smith
+    2019-09_25
+    Train Scheduler
+
+    ![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
+
+    Overview
+    Uses: Firebase and moment.js    
+        * When adding trains, administrators will be able to enter the following:
+    
+            * Train Name    
+            * Destination     
+            * First Train Time -- in military time    
+            * Frequency -- in minutes
+  
+        * Calculates when the next train will arrive relative to the current time.
+
+        * Users from any machine can view same train times because the data is stored
+             in Firebase.
 
 
+     https://sstorysmith.github.io/Train-Scheduler/
 
-* Please submit both the deployed Github.io link to your homework AND the link to the Github Repository!
 
--
-### Add To Your Portfolio
+  App Design
+      Train schedules are added and stored in Firebase when the "Add to Schedule" button is clicked. Arrival Time is calculated and displayed on the screen.
 
-After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
-
-- - -
-
+      Function ArrivalTime (startTime, interval, currentTime)
+        uses Moment code to calculate and convert time formats and returns a time
