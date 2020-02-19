@@ -1,16 +1,9 @@
-o	Make sure your ReadMEs
-o	Clearly state the problem the app is trying to solve
-o	Gives a high-level overview of how the app is organized
-o	Gives start-to-finish instructions on how to run the app
-o	Links to deployed version of the app
-o	Screenshots of the app
 
-
-Sharon Story Smith
+    Sharon Story Smith   sstorysmith@gmail.com
     2019-09_25
     Train Scheduler
 
-    ![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
+    ![Alt text](/ScreenShot.jpg?raw=true "Train Scheduler")
 
     Overview
     Uses: Firebase and moment.js    
