@@ -3,7 +3,8 @@
     2019-09_25
     Train Scheduler
 
-    ![Alt text](/ScreenShot.jpg?raw=true "Train Scheduler")
+    <img width=“1097” alt=“trainPrintScreen.jpg” src=“PrintScreen.jpg”>
+    ![automated demo of train](.\PrintScreen.png)
 
     Overview
     Uses: Firebase and moment.js    
