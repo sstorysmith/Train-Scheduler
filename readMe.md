@@ -1,18 +1,20 @@
     Train Scheduler
-    Sharon Story Smith   sstorysmith@gmail.com
-    2019-09_25
+    Sharon Story Smith   storysmithsharon@gmail.com
+    2019-09-25
 
 Screen Shot:
     <img width=“1097” alt=“trainPrintScreen.jpg” src=“PrintScreen.jpg”>
-    ![automated demo of train](.\PrintScreen.png)
+    ![screenshot of train](.\ScreenShot.png)
 
 Working Demo:
      https://sstorysmith.github.io/Train-Scheduler/
 
+Developer: Download Code and open index.html in a browser.
+
 
     Overview
     Uses: Firebase and moment.js    
-        * When adding trains, administrators will be able to enter the following:    
+        * When adding trains, enter the following:    
             * Train Name    
             * Destination     
             * First Train Time -- in military time    
@@ -20,17 +22,17 @@ Working Demo:
   
         * Calculates when the next train will arrive relative to the current time.
 
-        * Users from any machine can view same train times because the data is stored
+        * Users from any client can view the same train information because the data is stored
              in Firebase.
 
 App Design:
-      Train schedules are added and stored in Firebase when the "Add to Schedule" button is clicked. Arrival Time is calculated and displayed on the screen.
+      Train schedules are added and stored in Firebase when the "Add to Schedule" button is clicked. Arrival Time is calculated and displayed on the screen. 
 
       Function ArrivalTime (startTime, interval, currentTime)
        uses Moment code to calculate and convert time formats and returns a time
 
 Directory Structure:
-burger
+
 |
 |__ index.html
 |
@@ -42,10 +44,11 @@ burger
 |       |   |__ reset.css
 |       |
 │       └── images
-│       |   |__ train.jpg
+│       |   |__ trainTracks.jpg
 |       |
 |       |__ js
-           └── main.js
+|       └── main.js
 
 
-Notes:
+
+
