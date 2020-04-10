@@ -1,7 +1,6 @@
     Train Scheduler
     Sharon Story Smith   storysmithsharon@gmail.com
     2019-09-25
-
 Screen Shot:
     ![screenshot of GiphySearchandDisplay](.\ScreenShot.png)
 
@@ -9,7 +8,6 @@ Working Demo:
      [Train Scheduler](https://sstorysmith.github.io/Train-Scheduler/).
 
 Developer: Download Code and open index.html in a browser.
-
 
     Overview
     Uses: Firebase and moment.js    
