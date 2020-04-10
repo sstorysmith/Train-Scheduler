@@ -3,7 +3,7 @@
     2019-09-25
 
 Screen Shot:
-    ![screenshot of GiphySearchandDisplay](screenshot.jpg)
+    ![screenshot of GiphySearchandDisplay](.\ScreenShot.png)
 
 Working Demo:
      [Train Scheduler](https://sstorysmith.github.io/Train-Scheduler/).
