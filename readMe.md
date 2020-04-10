@@ -3,16 +3,15 @@
     2019-09-25
 
 Screen Shot:
-    <img width=“1097” alt=“trainPrintScreen.jpg” src=“PrintScreen.jpg”>
-    ![screenshot of train](.\ScreenShot.png)
+    ![screenshot of GiphySearchandDisplay](screenshot.jpg)
 
 Working Demo:
-     https://sstorysmith.github.io/Train-Scheduler/
+     [Train Scheduler](https://sstorysmith.github.io/Train-Scheduler/).
 
 Developer: Download Code and open index.html in a browser.
 
 
-Overview
+    Overview
     Uses: Firebase and moment.js    
         * When adding trains, enter the following:    
             * Train Name    
