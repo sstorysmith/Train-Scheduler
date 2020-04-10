@@ -12,7 +12,7 @@ Working Demo:
 Developer: Download Code and open index.html in a browser.
 
 
-    Overview
+Overview
     Uses: Firebase and moment.js    
         * When adding trains, enter the following:    
             * Train Name    
