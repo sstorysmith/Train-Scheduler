@@ -2,7 +2,7 @@
     Sharon Story Smith   storysmithsharon@gmail.com
     2019-09-25
 Screen Shot:
-    ![screenshot of GiphySearchandDisplay](.\ScreenShot.png)
+    [screenshot of GiphySearchandDisplay](.\ScreenShot.png)
 
 Working Demo:
      [Train Scheduler](https://sstorysmith.github.io/Train-Scheduler/).
