@@ -14,7 +14,7 @@ Developer:
      Download Code and open index.html in a browser.
 
 Overview:   
-        * When adding trains, enter the following:
+        * When adding trains, enter the following:  
                - Train Name       
                - Destination        
                - First Train Time -- in military time       
