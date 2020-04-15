@@ -14,13 +14,13 @@ Developer:
      Download Code and open index.html in a browser.
 
 Overview:   
-        * When adding trains, enter the following:  
-               - Train Name       
-               - Destination        
-               - First Train Time -- in military time       
-               - Frequency -- in minutes     
-        * Calculates when the next train will arrive relative to the current time.   
-        * Users from any client can view the same train information because the data is stored
+    * When adding trains, enter the following:  
+         - Train Name       
+         - Destination        
+         - First Train Time -- in military time       
+         - Frequency -- in minutes     
+    * Calculates when the next train will arrive relative to the current time.   
+    * Users from any client can view the same train information because the data is stored
              in Firebase.   
 
 App Design:
