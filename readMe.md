@@ -15,13 +15,11 @@ Developer:
 
 Overview:   
         * When adding trains, enter the following:       
-            - Train Name       
-            - Destination        
-            - First Train Time -- in military time       
-            - Frequency -- in minutes   
-  
-        * Calculates when the next train will arrive relative to the current time.   
-
+               - Train Name       
+               - Destination        
+               - First Train Time -- in military time       
+               - Frequency -- in minutes     
+        * Calculates when the next train will arrive relative to the current time.
         * Users from any client can view the same train information because the data is stored
              in Firebase.   
 
